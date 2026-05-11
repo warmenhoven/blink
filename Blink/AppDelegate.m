@@ -96,7 +96,7 @@ void __setupProcessEnv(void) {
     
   });
 
-  sideLoading = false; // Turn off extra commands from iOS system
+  sideLoading = true; // Turn off extra commands from iOS system
   initializeEnvironment(); // initialize environment variables for iOS system
   dispatch_async(bgQueue, ^{
     addCommandList([[NSBundle mainBundle] pathForResource:@"blinkCommandsDictionary" ofType:@"plist"]); // Load blink commands to ios_system

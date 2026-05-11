@@ -50,11 +50,11 @@ public struct Entitlement: Identifiable, Equatable, Hashable {
   public var unlockProductID: String?
   public var period: EntitlementPeriodType
 
-  public static var inactiveUnlimitedScreenTime = Self(id: UnlimitedScreenTimeEntitlementID, active: false, unlockProductID: nil, period: .None)
+  public static var inactiveUnlimitedScreenTime = Self(id: UnlimitedScreenTimeEntitlementID, active: true, unlockProductID: nil, period: .None)
 
-  public static var earlyAccessFeatures = Self(id: EarlyAccessFeaturesEntitlementID, active: false, unlockProductID: nil, period: .None)
+  public static var earlyAccessFeatures = Self(id: EarlyAccessFeaturesEntitlementID, active: true, unlockProductID: nil, period: .None)
 
-  public static var build = Self(id: BuildEntitlementID, active: false, unlockProductID: nil, period: .None)
+  public static var build = Self(id: BuildEntitlementID, active: true, unlockProductID: nil, period: .None)
 }
 
 public protocol EntitlementsSourceDelegate: AnyObject {
@@ -79,7 +79,7 @@ public class EntitlementsManager: ObservableObject, EntitlementsSourceDelegate {
   @Published var earlyAccessFeatures: Entitlement = .earlyAccessFeatures
   @Published var build: Entitlement = .build
   
-  @Published var activeSubscriptions: Set<String> = .init()
+  @Published var activeSubscriptions: Set<String> = .init([ProductBlinkShellPlusID])
   @Published var nonSubscriptionTransactions: Set<String> = .init()
   
   private let _sources: [EntitlementsSource]

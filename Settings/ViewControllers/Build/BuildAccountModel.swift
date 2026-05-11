@@ -56,7 +56,7 @@ class BuildAccountModel: ObservableObject {
   
 //  @Published var flow: Int = 0
   
-  @Published var hasBuildToken: Bool = false
+  @Published var hasBuildToken: Bool = true
   @Published var usageBalance: BuildUsageBalance? = nil
 //  @Published var isStagingEnv: Bool = false {
 //    didSet {
